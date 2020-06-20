@@ -31,7 +31,7 @@ def indexCandidates():
 		candidate_temp = '<br>' + list_begin
 		i = 0 
 		chk = 0
-		for document in collection.find({"name" : re.compile(".*"+name.upper()+".*")}):
+		for document in collection.find({"name" : re.compile(".*"+name.upper()+".*")}).sort("name"):
 			chk = 1
 			candidate_temp += list_item + acc_link_begin_1 + document['name'] + " : " + document['hallticket'] + acc_link_begin_2 + "acc"+str(i) + acc_link_begin_3 + "acc"+str(i) + acc_link_begin_4 + getResult(document) + acc_link_end + '</li>'
 			i += 1
@@ -54,4 +54,4 @@ def indexCandidates():
 def getResult(document):
 	if document == None:
 		return '<small  class="form-text text-muted"><font style="color:red">Enter a valid hallticket number or name</font></small>'
-	return list_begin + list_item + '<b>Intermediate Public Examinations First Year March-2020</b></li>' + list_item + '<b>Hallticket Number: </b>' + document['name'] + '</li>' + list_item + '<b>Name: </b>' + document['name'] + '</li>' + list_item + "<b>Father's Name: </b>" + document['father'] + '</li>' + list_item + '<b>District: </b>' + document['district'] + '</li>' + list_item + document['marks'] + '</li>' + list_item + document['result'] + '</li>' + '</ul>'
+	return list_begin + list_item + '<b>Intermediate Public Examinations First Year March-2020</b></li>' + list_item + '<b>Hallticket Number: </b>' + document['hallticket'] + '</li>' + list_item + '<b>Name: </b>' + document['name'] + '</li>' + list_item + "<b>Father's Name: </b>" + document['father'] + '</li>' + list_item + '<b>District: </b>' + document['district'] + '</li>' + list_item + document['marks'] + '</li>' + list_item + document['result'] + '</li>' + '</ul>'
