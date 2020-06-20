@@ -31,7 +31,7 @@ def indexCandidates():
 		candidate_temp = '<br>' + list_begin
 		i = 0 
 		chk = 0
-		for document in collection.find({"name" : re.compile(".*"+name.upper()+".*")}).sort("name"):
+		for document in collection.find({"name" : re.compile(".*"+name.upper()+" .*")}).sort("name"):
 			chk = 1
 			candidate_temp += list_item + acc_link_begin_1 + document['name'] + " : " + document['hallticket'] + acc_link_begin_2 + "acc"+str(i) + acc_link_begin_3 + "acc"+str(i) + acc_link_begin_4 + getResult(document) + acc_link_end + '</li>'
 			i += 1
