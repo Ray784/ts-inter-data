@@ -32,14 +32,14 @@ def valid(hallticket, file1, file2):
 
 
 def getContent():
-	i = 52#int(input("Enter district code: "))
+	i = int(input("Enter district code: "))
 	file1 = open('halltickets'+str(i)+'.txt','w')
 	file2 = open('data'+str(i)+'.txt','w')
 	cnt = 0
 	hallticket = "20"
 	hallticket += str(i)
 	hallticket += "1"
-	j = 10016
+	j = 0
 	step = 0
 	while(j < 50000):
 		stud_id = "00000"+str(j)
